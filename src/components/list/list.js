@@ -2,9 +2,8 @@ import React from "react";
 import fetchServices from "../../services/fetch-service";
 import Pagination from "../../components/pagination/pagination";
 import Table from "./table";
-
-import "./list.css";
 import Loading from "../loading/loading";
+import "./list.css";
 
 class List extends React.Component {
   constructor() {
@@ -41,15 +40,6 @@ class List extends React.Component {
     });
   };
 
-  renderChangePercent = (percent) => {
-    if (percent > 0) {
-      return <span className="percent-raised">{percent}% &uarr;</span>;
-    } else if (percent < 0) {
-      return <span className="percent-fallen">{percent}% &darr;</span>;
-    } else {
-      return <span>{percent}</span>;
-    }
-  };
 
   componentDidMount() {
     this.currenciesGetter();
@@ -67,7 +57,6 @@ class List extends React.Component {
       <>
         <Table
           currencies={currencies}
-          renderChangePercent={this.renderChangePercent}
         />
         <Pagination
           handlePaginationClick={this.handlePaginationClick}

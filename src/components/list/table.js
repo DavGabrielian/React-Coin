@@ -1,7 +1,8 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+import renderChangePercent from "../../helpers/renderChangePercent";
 
-const Table = ({ currencies, renderChangePercent, ...props }) => {
-
+const Table = ({ currencies, history, ...props }) => {
   return (
     <div className="Table-container">
       <table className="Table">
@@ -14,31 +15,32 @@ const Table = ({ currencies, renderChangePercent, ...props }) => {
           </tr>
         </thead>
         <tbody className="Table-body">
-          {currencies.map((currency) => (
-            <tr key={currency.id}>
-              <td>
-                <span className="Table-rank">{currency.rank}</span>
-
-                {currency.name}
-              </td>
-              <td>
-                <span className="Table-dollar">$ </span>
-                {currency.price}
-              </td>
-              <td>
-                <span className="Table-dollar">$ </span>
-                {currency.marketCap}
-              </td>
-              <td>
-                <span className="Table-dollar"> </span>
-                {renderChangePercent(currency.percentChange24h)}
-              </td>
-            </tr>
-          ))}
+          {currencies.map(
+            ({ id, name, price, rank, marketCap, percentChange24h }) => (
+              <tr key={id} onClick={() => history.push(`/currency/${id}`)}>
+                <td>
+                  <span className="Table-rank">{rank}</span>
+                  {name}
+                </td>
+                <td>
+                  <span className="Table-dollar">$ </span>
+                  {price}
+                </td>
+                <td>
+                  <span className="Table-dollar">$ </span>
+                  {marketCap}
+                </td>
+                <td>
+                  <span className="Table-dollar"> </span>
+                  {renderChangePercent(percentChange24h)}
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default Table;
+export default withRouter(Table);
