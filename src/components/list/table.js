@@ -2,7 +2,9 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import renderChangePercent from "../../helpers/renderChangePercent";
 
+
 const Table = ({ currencies, history, ...props }) => {
+
   return (
     <div className="Table-container">
       <table className="Table">
@@ -42,5 +44,6 @@ const Table = ({ currencies, history, ...props }) => {
     </div>
   );
 };
+
 
 export default withRouter(Table);

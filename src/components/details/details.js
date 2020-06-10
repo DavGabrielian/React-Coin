@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import fetchServices from "../../services/fetch-service";
 import Loading from "../loading/loading";
-import renderChangePercent from '../../helpers/renderChangePercent'
+import renderChangePercent from "../../helpers/renderChangePercent";
 import "./details.css";
 
-class Details extends React.Component {
+class Details extends React.PureComponent {
   constructor() {
     super();
     this.state = {
@@ -26,16 +26,24 @@ class Details extends React.Component {
     this.getCurrency();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.getCurrency();
+    }
+  }
+
   render() {
     const { currency, loading } = this.state;
 
-    if(loading){
-        return <div className='loading-container'>
-            <Loading/>
+    if (loading) {
+      return (
+        <div className="loading-container">
+          <Loading />
         </div>
+      );
     }
     return (
-        <div className="Detail">
+      <div className="Detail">
         <h1 className="Detail-heading">
           {currency.name} ({currency.symbol})
         </h1>
@@ -48,7 +56,9 @@ class Details extends React.Component {
           </div>
           <div className="Detail-item">
             24H Change
-            <span className="Detail-value">{renderChangePercent(currency.percentChange24h)}</span>
+            <span className="Detail-value">
+              {renderChangePercent(currency.percentChange24h)}
+            </span>
           </div>
           <div className="Detail-item">
             <span className="Detail-title">Market cap</span>
@@ -66,7 +76,7 @@ class Details extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
