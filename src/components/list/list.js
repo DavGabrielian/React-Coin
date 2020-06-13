@@ -3,6 +3,7 @@ import fetchServices from "../../services/fetch-service";
 import Pagination from "../../components/pagination/pagination";
 import Table from "./table";
 import Loading from "../loading/loading";
+import CurrenciesContext from "../../context/currencies";
 import "./list.css";
 
 class List extends React.Component {
@@ -36,10 +37,9 @@ class List extends React.Component {
       currencies: response.currencies,
       loading: false,
       totalPages: response.totalPages,
-      page: response.page
+      page: response.page,
     });
   };
-
 
   componentDidMount() {
     this.currenciesGetter();
@@ -49,21 +49,21 @@ class List extends React.Component {
     const { loading, currencies, totalPages, page } = this.state;
 
     if (loading) {
-      return <div className='loading-container'>
-        <Loading/>
-      </div>;
+      return (
+        <div className="loading-container">
+          <Loading />
+        </div>
+      );
     }
     return (
-      <>
-        <Table
-          currencies={currencies}
-        />
+      <CurrenciesContext.Provider value={currencies}>
+        <Table />
         <Pagination
           handlePaginationClick={this.handlePaginationClick}
           totalPages={totalPages}
           page={page}
         />
-      </>
+      </CurrenciesContext.Provider>
     );
   }
 }
