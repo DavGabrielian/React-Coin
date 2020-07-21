@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Coin/static/css/main.7e877c81.chunk.css",
+    "main.js": "/React-Coin/static/js/main.cd30fed6.chunk.js",
+    "main.js.map": "/React-Coin/static/js/main.cd30fed6.chunk.js.map",
+    "runtime-main.js": "/React-Coin/static/js/runtime-main.242095ec.js",
+    "runtime-main.js.map": "/React-Coin/static/js/runtime-main.242095ec.js.map",
+    "static/js/2.11995e7d.chunk.js": "/React-Coin/static/js/2.11995e7d.chunk.js",
+    "static/js/2.11995e7d.chunk.js.map": "/React-Coin/static/js/2.11995e7d.chunk.js.map",
+    "index.html": "/React-Coin/index.html",
+    "precache-manifest.d339454546f1e59ba3526194002a10ac.js": "/React-Coin/precache-manifest.d339454546f1e59ba3526194002a10ac.js",
+    "service-worker.js": "/React-Coin/service-worker.js",
+    "static/css/main.7e877c81.chunk.css.map": "/React-Coin/static/css/main.7e877c81.chunk.css.map",
+    "static/js/2.11995e7d.chunk.js.LICENSE.txt": "/React-Coin/static/js/2.11995e7d.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/React-Coin/static/media/logo.5c0436d5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.242095ec.js",
+    "static/js/2.11995e7d.chunk.js",
+    "static/css/main.7e877c81.chunk.css",
+    "static/js/main.cd30fed6.chunk.js"
+  ]
+}
